@@ -1,0 +1,26 @@
+{
+    "products": [
+        {
+            "ProductName": "aliquet lacus interdum",
+            "UnitPrice": 0.0224082535237112,
+            "Amount": 40
+        },
+        {
+            "ProductName": "Nulla nec sit viverra Donec",
+            "UnitPrice": 0.0470283277551776,
+            "Amount": 68
+        }
+    ],
+    "basket": [
+        {
+            "ProductName": "lacus interdum Integer tempor commodo quis",
+            "UnitPrice": 73.2749807989574,
+            "Amount": 18
+        },
+        {
+            "ProductName": "Donec nisi commodo dui lobortis erat ipsum orci",
+            "UnitPrice": 930.936805871752,
+            "Amount": 16
+        }
+    ]
+}

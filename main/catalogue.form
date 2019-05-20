@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<Form>
+  <Name value="catalogue" />
+  <Caption value="Catalogue" />
+  <Content>
+    <Panel>
+      <Name value="panel1" />
+      <Orientation value="Vertical" />
+      <Panel.Height value="#" />
+      <Panel.Width value="*" />
+      <Children>
+        <HyperLink>
+          <Name value="linkCheckout" />
+          <Panel.Height value="#" />
+          <Panel.HorizontalAlignment value="Right" />
+          <Panel.Width value="150px" />
+          <OnClick>
+            <ActionEvent ReferencedAction="~goToCheckout" />
+          </OnClick>
+          <Bindings>
+            <Binding SourceProperty="Data" Expression="form.checkoutLinkTitle" />
+          </Bindings>
+          <CssClass>
+            <CssClassConditional>
+              <ClassName value="{theme}-hyperlink" />
+              <IsThemedStyle value="True" />
+            </CssClassConditional>
+          </CssClass>
+        </HyperLink>
+        <DataTable>
+          <Name value="dataTable1" />
+          <Panel.Height value="#" />
+          <Panel.Width value="*" />
+          <Bindings>
+            <Binding SourceProperty="DataItems" Expression="products" />
+          </Bindings>
+          <Columns>
+            <DataColumn>
+              <Name value="dataColumn1" />
+              <Caption value="Product name" />
+              <Content>
+                <Label>
+                  <Name value="label1" />
+                  <Bindings>
+                    <Binding SourceProperty="Data" Expression="ProductName" />
+                  </Bindings>
+                  <CssClass>
+                    <CssClassConditional>
+                      <ClassName value="m8-label" />
+                      <IsThemedStyle value="True" />
+                    </CssClassConditional>
+                  </CssClass>
+                </Label>
+              </Content>
+              <HeaderCssClass>
+                <CssClassConditional>
+                  <ClassName value="m8-datacolumn" />
+                  <IsThemedStyle value="True" />
+                </CssClassConditional>
+              </HeaderCssClass>
+            </DataColumn>
+            <DataColumn>
+              <Name value="dataColumn2" />
+              <Caption value="UnitPrice" />
+              <Content>
+                <Label>
+                  <Name value="label2" />
+                  <Bindings>
+                    <Binding SourceProperty="Data" Expression="UnitPrice" />
+                  </Bindings>
+                  <CssClass>
+                    <CssClassConditional>
+                      <ClassName value="m8-label" />
+                      <IsThemedStyle value="True" />
+                    </CssClassConditional>
+                  </CssClass>
+                </Label>
+              </Content>
+              <HeaderCssClass>
+                <CssClassConditional>
+                  <ClassName value="m8-datacolumn" />
+                  <IsThemedStyle value="True" />
+                </CssClassConditional>
+              </HeaderCssClass>
+            </DataColumn>
+            <DataColumn>
+              <Name value="dataColumn3" />
+              <Caption value=" " />
+              <Content>
+                <TextBox>
+                  <Name value="textBox3" />
+                  <CaptionPosition value="Hide" />
+                  <CaptionVAlign value="Middle" />
+                  <Panel.Height value="#" />
+                  <Panel.Width value="150px" />
+                  <Bindings>
+                    <Binding SourceProperty="Data" Expression="Amount" />
+                    <Binding SourceProperty="IsRequiredMarkVisible" Expression="Amount.isRequired()" />
+                    <Binding SourceProperty="Caption" Expression="Amount.caption()" />
+                  </Bindings>
+                  <CssClass>
+                    <CssClassConditional>
+                      <ClassName value="m8-textbox" />
+                      <IsThemedStyle value="True" />
+                    </CssClassConditional>
+                  </CssClass>
+                </TextBox>
+              </Content>
+              <HeaderCssClass>
+                <CssClassConditional>
+                  <ClassName value="m8-datacolumn" />
+                  <IsThemedStyle value="True" />
+                </CssClassConditional>
+              </HeaderCssClass>
+            </DataColumn>
+            <DataColumn>
+              <Name value="dataColumn4" />
+              <Caption value=" " />
+              <Content>
+                <Button>
+                  <Name value="btnBuy" />
+                  <Caption value="Buy" />
+                  <Panel.Height value="#" />
+                  <Panel.Width value="150px" />
+                  <OnClick>
+                    <ActionEvent ReferencedAction="~handler_btnBuy_OnClick" />
+                  </OnClick>
+                  <Bindings>
+                    <Binding SourceProperty="IsEnabled" Expression="isButtonEnabled" />
+                  </Bindings>
+                  <CssClass>
+                    <CssClassConditional>
+                      <ClassName value="m8-button" />
+                      <IsThemedStyle value="True" />
+                    </CssClassConditional>
+                  </CssClass>
+                </Button>
+              </Content>
+              <HeaderCssClass>
+                <CssClassConditional>
+                  <ClassName value="m8-datacolumn" />
+                  <IsThemedStyle value="True" />
+                </CssClassConditional>
+              </HeaderCssClass>
+            </DataColumn>
+          </Columns>
+          <CssClass>
+            <CssClassConditional>
+              <ClassName value="{theme}-datatable" />
+              <IsThemedStyle value="True" />
+            </CssClassConditional>
+          </CssClass>
+        </DataTable>
+      </Children>
+      <CssClass>
+        <CssClassConditional>
+          <ClassName value="{theme}-panel" />
+          <IsThemedStyle value="True" />
+        </CssClassConditional>
+      </CssClass>
+    </Panel>
+  </Content>
+  <DataContext>
+    <DataContext>
+      <Children>
+        <Collection>
+          <Name value="products" />
+          <Caption value="Products" />
+          <Children>
+            <Include>
+              <Include reference="+DataEntities.product" />
+            </Include>
+            <Computed>
+              <Name value="isButtonEnabled" />
+              <Caption value="Is button enabled" />
+              <Expression IsValid="True">
+                <ExpressionText><![CDATA[Amount.isValid() AND Amount.hasValue()]]></ExpressionText>
+                <ResultType>
+                  <BaseType value="Bool" />
+                </ResultType>
+              </Expression>
+            </Computed>
+          </Children>
+        </Collection>
+        <Collection>
+          <Name value="basket" />
+          <Caption value="Basket" />
+          <Children>
+            <Include>
+              <Include reference="+DataEntities.product" />
+            </Include>
+          </Children>
+        </Collection>
+        <Computed>
+          <Name value="checkoutLinkTitle" />
+          <Caption value="Checkout link title" />
+          <Expression IsValid="True">
+            <ExpressionText><![CDATA["Basket " + (basket.count() = 0 ? "is empty" : (tostring(basket.count()) + " item(s)"))]]></ExpressionText>
+            <ResultType>
+              <BaseType value="String" />
+            </ResultType>
+          </Expression>
+        </Computed>
+      </Children>
+    </DataContext>
+  </DataContext>
+  <OnCreate>
+    <ActionEvent ReferencedAction="~init" />
+  </OnCreate>
+  <Actions>
+    <ActionBlock>
+      <Name value="init" />
+      <ActionLangBody IsValid="True">
+        <Script><![CDATA[var response = apiobjects.northwind.getAsync("Products")
+
+if response.isError() then
+	globals.errorMessage = response.getErrorMessage()
+else
+	form.products.fromJson(response.extractJson("value"))
+endif]]></Script>
+      </ActionLangBody>
+      <DataContext>
+        <ActionDataContext />
+      </DataContext>
+    </ActionBlock>
+    <ActionBlock>
+      <Name value="handler_btnBuy_OnClick" />
+      <IsPrivate value="True" />
+      <ActionLangBody IsValid="True">
+        <Script><![CDATA[if params.data.Amount.hasValue() and params.data.Amount.isValid() then
+	if form.basket.exists(current.ProductName = params.data.ProductName) then
+		var item = form.basket.selectFirst(current.ProductName = params.data.ProductName)
+		item.Amount = item.Amount + params.data.Amount
+	else
+		var basketItem = form.basket.addItem()
+		basketItem.ProductName = params.data.ProductName
+		basketItem.UnitPrice = params.data.UnitPrice
+		basketItem.Amount = params.data.Amount	
+	endif
+endif
+]]></Script>
+      </ActionLangBody>
+      <DataContext>
+        <ActionDataContext />
+      </DataContext>
+    </ActionBlock>
+    <ActionBlock>
+      <Name value="goToCheckout" />
+      <ActionLangBody IsValid="True">
+        <Script><![CDATA[navigation.main.checkout.go(form.basket.toJson())]]></Script>
+      </ActionLangBody>
+      <DataContext>
+        <ActionDataContext />
+      </DataContext>
+    </ActionBlock>
+  </Actions>
+</Form>

@@ -1,0 +1,15 @@
+{
+    "basket": [
+        {
+            "ProductName": "Quisque eget",
+            "UnitPrice": 0.0479980292953542,
+            "Amount": 58
+        },
+        {
+            "ProductName": "nec tortor vitae Sed ultricies accumsan nec sit varius adip",
+            "UnitPrice": 87.5226842181397,
+            "Amount": 40
+        }
+    ],
+    "basketAsJson": "nisl Quisque eget"
+}

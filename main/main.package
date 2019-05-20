@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<Package>
+  <Identity value="main.155d8f7b8eb047fc8b32454326b25292" />
+  <Items>
+    <PackageItem Src="masterPage.form" />
+    <PackageItem Src="catalogue.form" />
+    <PackageItem Src="checkout.form" />
+    <PackageItem Src="globalVariables.globalVariables" />
+    <PackageItem Src="globalApiObjects.globalApiObjects" />
+    <ResourceItem ResourceName="northwindShop.css" LinkerAction="Css" OutputFileName="northwindShop.css" Src="northwindShop.css" />
+    <PackageItem Src="product.dataEntity" />
+  </Items>
+</Package>

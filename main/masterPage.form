@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<Form>
+  <Name value="masterPage" />
+  <Caption value="Master page" />
+  <Content>
+    <Panel>
+      <Name value="panel1" />
+      <Orientation value="Vertical" />
+      <Panel.Height value="#" />
+      <Panel.Width value="*" />
+      <Children>
+        <Label>
+          <Name value="northwindShop" />
+          <Data value="Northwind shop" />
+          <Heading value="h2" />
+          <Margin value="6, 6, 20, 6 px" />
+          <Panel.Height value="#" />
+          <Panel.HorizontalAlignment value="Center" />
+          <Panel.Width value="400px" />
+          <CssClass>
+            <CssClassConditional>
+              <ClassName value="{theme}-label" />
+              <IsThemedStyle value="True" />
+            </CssClassConditional>
+          </CssClass>
+        </Label>
+        <Label>
+          <Name value="lblError" />
+          <Margin value="6, 6, 20, 6 px" />
+          <Panel.Height value="#" />
+          <Panel.Width value="300px" />
+          <Bindings>
+            <Binding SourceProperty="Data" Expression="globals.errorMessage" />
+          </Bindings>
+          <CssClass>
+            <CssClassConditional>
+              <ClassName value="m8-label" />
+            </CssClassConditional>
+            <CssClassConditional>
+              <ClassName value="error" />
+            </CssClassConditional>
+          </CssClass>
+        </Label>
+        <FormPlaceholder>
+          <Name value="formPlaceholder1" />
+          <InitialForm reference="+UiParts.catalogue" />
+          <Panel.Height value="#" />
+          <Panel.Width value="*" />
+        </FormPlaceholder>
+      </Children>
+      <CssClass>
+        <CssClassConditional>
+          <ClassName value="{theme}-panel" />
+          <IsThemedStyle value="True" />
+        </CssClassConditional>
+      </CssClass>
+    </Panel>
+  </Content>
+  <DataContext>
+    <DataContext />
+  </DataContext>
+</Form>

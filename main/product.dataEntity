@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<DataEntity>
+  <Name value="product" />
+  <Caption value="Product" />
+  <Children>
+    <Attribute>
+      <Name value="ProductName" />
+      <Caption value="Product name" />
+      <DeclaredType>
+        <AttributeType />
+      </DeclaredType>
+    </Attribute>
+    <Attribute>
+      <Name value="UnitPrice" />
+      <Caption value="Unit price" />
+      <DeclaredType>
+        <AttributeType>
+          <BaseType value="Decimal" />
+        </AttributeType>
+      </DeclaredType>
+    </Attribute>
+    <Attribute>
+      <Name value="Amount" />
+      <Caption value="Amount" />
+      <DeclaredType>
+        <AttributeType>
+          <BaseType value="Integer" />
+          <IntMax value="99" />
+          <IntMin value="0" />
+        </AttributeType>
+      </DeclaredType>
+    </Attribute>
+  </Children>
+</DataEntity>

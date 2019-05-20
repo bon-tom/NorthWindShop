@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?data-format version="0.400"?>
+<GlobalApiObjects>
+  <Name value="globalApiObjects" />
+  <ApiObjects>
+    <ServerConnection identity="ServerConnection.db7b3eef075548988df768923691922c">
+      <Name value="northwind" />
+      <codelistsUrl value="" />
+      <listsUrl value="" />
+      <rootUrl value="https://services.odata.org/V4/Northwind/Northwind.svc/" />
+    </ServerConnection>
+  </ApiObjects>
+</GlobalApiObjects>
